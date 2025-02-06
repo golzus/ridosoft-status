@@ -1,0 +1,86 @@
+body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #800080, #000080);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    direction: rtl;
+  }
+  
+  .container, .password-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    text-align: center;
+  }
+  
+  h1, h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .date-picker, .view-option {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input, select {
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background: linear-gradient(45deg, #800080, #000080);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: linear-gradient(45deg, #600060, #000060);
+  }
+  
+  .category-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .category-table th, .category-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .category-table th {
+    background: linear-gradient(45deg, #800080, #000080);
+    color: white;
+  }
+  
+  .category-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+  }
+  
