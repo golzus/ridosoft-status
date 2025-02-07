@@ -1,17 +1,17 @@
-// ViewSelector.js
-import React from "react";
 
 const ViewSelector = ({ viewOption, setViewOption, options }) => {
   return (
-    <div>
-      <label>בחר תקופה:</label>
-      <select value={viewOption} onChange={(e) => setViewOption(e.target.value)}>
-        {Object.keys(options).map(option => (
-          <option key={option} value={option}>{options[option]}</option>
-        ))}
-      </select>
+    <div className="view-options">
+      {Object.entries(options).map(([key, label], index) => (
+        <button
+          key={key}
+          className={viewOption === key ? "active" : ""}
+          onClick={() => setViewOption(key)}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 };
-
 export default ViewSelector;
