@@ -137,12 +137,7 @@ const updatePeriodWorkTypesArray = (periodWorkTypes) =>
       console.log(e, "error at fetching PaymentDetailsTillNow data");
     }
   }
-  //if the viewOption is not 'all' the payment history will be hidden   
-  useEffect(() => {
-    if (viewOption !== 'all')
-      setSeePayments(false);
-  }, [viewOption]
-  )
+
   useEffect(() => {
     fetchFullWorkTypes();
     fetchLastmonthWorkTypes();
@@ -177,7 +172,7 @@ const totalEstimatedCost = filteredfullPeriodWorkTypes.reduce((sum, item) => sum
           <CategoryTable fullPeriodWorkTypes={filteredfullPeriodWorkTypes} />
          
           <div><WorkChart    filteredfullPeriodWorkTypes={filteredfullPeriodWorkTypes} />
-            <PieChart    filteredfullPeriodWorkTypes={filteredfullPeriodWorkTypes} />
+            <PieChart className='pieChart'   filteredfullPeriodWorkTypes={filteredfullPeriodWorkTypes} />
           </div>
         </section>
         <Summary totalHours={totalHours} totalCost={totalActualCost}totalEstimatedCost={totalEstimatedCost} fullPeriod={viewOption==='all'} />
@@ -185,7 +180,7 @@ const totalEstimatedCost = filteredfullPeriodWorkTypes.reduce((sum, item) => sum
           {!seePayments ? 'לצפיה בכל התשלומים עד כה' :
             'להסתרת פירוט התשלומים'}</button>}
         {
-          seePayments && <PaymentHistory paymentDetailsTillNow={paymentDetailsTillNow} />
+         viewOption==='all'&& seePayments && <PaymentHistory paymentDetailsTillNow={paymentDetailsTillNow} />
         }
       </>
     </div>

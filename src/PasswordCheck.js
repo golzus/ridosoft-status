@@ -1,14 +1,15 @@
 // PasswordCheck.js - קומפוננטת בדיקת סיסמה
-import { Axios } from "axios";
+import  Axios  from "axios";
 import React, { useState } from "react";
-import ErrorPassordMessage from "./ErrorPassordMessage";
+import ErrorPasswordMessage from "./ErrorPasswordMessage";
 
 const PasswordCheck = ({ onSuccess }) => {
   const [password, setPassword] = useState("");
   const [error,setError]=useState('')
   
-  const handlePasswordCheck=async()=>{
+  const handlePasswordCheck=async(e)=>{
     try {
+      e.preventDefault();
       const {data}=await Axios.post("url/to/check/if/its/a/alid/password",{password})
       if(data===true||password==='1234'){
         onSuccess();
@@ -27,7 +28,8 @@ const PasswordCheck = ({ onSuccess }) => {
    
   }
   //till you will get the realy api
-  const handlePasswordCheckForTheMeantime=()=>{
+  const handlePasswordCheckForTheMeantime=(e)=>{
+    e.preventDefault();
     if(password==='1234')
       onSuccess()
     else{
@@ -39,19 +41,20 @@ const PasswordCheck = ({ onSuccess }) => {
   
  
   return (
-    <div className="password-container">
-    {error &&  <ErrorPassordMessage message={error}/>}
+    <form className="password-container" onSubmit={handlePasswordCheckForTheMeantime}>
+    {error &&  <ErrorPasswordMessage message={error}/>}
 
       <h2>הכנס סיסמה</h2>
       <input
+      required
         type="password"
         disabled={error===null}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         placeholder="הכנס סיסמה"
       />
-      <button disabled={error} onClick={handlePasswordCheckForTheMeantime}>כניסה</button>
-    </div>
+      <button type="submit">כניסה</button>
+    </form>
   );
 };
 

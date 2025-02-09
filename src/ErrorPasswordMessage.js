@@ -1,6 +1,6 @@
 import React from "react";
 
-const ErrorPassordMessage = ({ message }) => {
+const ErrorPasswordMessage = ({ message }) => {
   return (
     <div className="error-message">
       <p>{message}</p>
@@ -8,4 +8,4 @@ const ErrorPassordMessage = ({ message }) => {
   );
 };
 
-export default ErrorPassordMessage;
+export default ErrorPasswordMessage;
